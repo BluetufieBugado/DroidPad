@@ -1,6 +1,6 @@
 # DroidPad — Protocolo Wi-Fi v1 (MVP)
 
-Objetivo: celular-controle envia estado do gamepad a 60Hz via UDP. Receptor (PC Windows ou outro Android) escuta e injeta/visualiza.
+Objetivo: celular-controle envia estado do gamepad a 60Hz via UDP. Receptor (PC Windows) escuta e injeta/visualiza.
 
 > Nota: o app se chama **DroidPad**, mas por compatibilidade os identificadores do protocolo continuam `phonepad` (`PHONEPAD_DISCOVER`, campo `"phonepad":1`).
 
@@ -11,7 +11,7 @@ Objetivo: celular-controle envia estado do gamepad a 60Hz via UDP. Receptor (PC 
 
 ## Discovery (v2)
 - Sender envia ASCII `PHONEPAD_DISCOVER` em broadcast `255.255.255.255:9998` (3x).
-- Receptor (PC ou Android em modo Receber) responde em unicast:
+- Receptor (PC) responde em unicast:
 ```json
 {"phonepad":1,"name":"DESKTOP-X","port":9999,"type":"pc"}
 ```

@@ -17,10 +17,8 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.core.os.LocaleListCompat
 
-/** Tela de conexão: busca o receptor e abre o controle. O modo Receber continua aqui. */
+/** Tela de conexão: busca o receptor e abre o controle (Wi-Fi ou Bluetooth HID). */
 class MainActivity : AppCompatActivity() {
-    private var receiver: UdpReceiver? = null
-    private var discoveryResp: DiscoveryResponder? = null
     private val found = mutableListOf<UdpDiscovery.Found>()
     private lateinit var adapter: ArrayAdapter<String>
     private var hid: HidGamepad? = null
@@ -68,7 +66,6 @@ class MainActivity : AppCompatActivity() {
 
         val etIp = findViewById<EditText>(R.id.etIp)
         val btnSend = findViewById<Button>(R.id.btnSend)
-        val btnReceive = findViewById<Button>(R.id.btnReceive)
         val btnDiscover = findViewById<Button>(R.id.btnDiscover)
         val spDevices = findViewById<Spinner>(R.id.spDevices)
         val tvStatus = findViewById<TextView>(R.id.tvStatus)
@@ -111,7 +108,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnSend.setOnClickListener {
-            stopReceiver()
             val ip = etIp.text.toString().trim().ifEmpty { "192.168.0.100" }
             Session.start(ip)
             startActivity(Intent(this, ControllerActivity::class.java))
@@ -141,23 +137,9 @@ class MainActivity : AppCompatActivity() {
                     toast(getString(R.string.bt_unsupported))
                     return@setOnClickListener
                 }
-                stopReceiver()
                 Session.stop()
                 startBtFlow()
             }
-        }
-
-        btnReceive.setOnClickListener {
-            Session.stop()
-            stopReceiver()
-            tvStatus.text = getString(R.string.listening, GamepadPacket.PORT)
-            discoveryResp = DiscoveryResponder().also { it.start() }
-            receiver = UdpReceiver { p, from ->
-                runOnUiThread {
-                    tvStatus.text = getString(R.string.recv_line, from,
-                        "%.2f".format(p.lx), "%.2f".format(p.ly), p.btn.toString())
-                }
-            }.also { it.start() }
         }
 
         findViewById<Button>(R.id.btnExport).setOnClickListener {
@@ -262,10 +244,7 @@ class MainActivity : AppCompatActivity() {
         tvStatus.text = getString(R.string.bt_registering)
     }
 
-    private fun stopReceiver() { receiver?.stop(); receiver = null; discoveryResp?.stop(); discoveryResp = null }
-
     override fun onDestroy() {
-        stopReceiver()
         if (isFinishing) { hid?.stop(); hid = null }
         super.onDestroy()
     }

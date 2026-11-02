@@ -8,8 +8,6 @@
     <string name="control_bt">🔵 Controlar (Bluetooth)</string>
     <string name="bt_stop">🔴 Parar Bluetooth</string>
     <string name="bt_legacy">Compat. receptor antigo (remapeia botões BT)</string>
-    <string name="or_separator">— ou —</string>
-    <string name="receive">📡 Receber (este celular é o receptor)</string>
     <string name="status_idle">Toque em Buscar ou digite o IP.</string>
     <string name="export_profiles">⬆ Exportar perfis</string>
     <string name="import_profiles">⬇ Importar perfis</string>
@@ -26,8 +24,6 @@
     <string name="found_n">%1$d encontrado(s) — IP preenchido, toque em Controlar.</string>
     <string name="tap_find_hint">Toque em Buscar…</string>
     <string name="spinner_empty">Nada encontrado</string>
-    <string name="listening">Escutando UDP :%1$d …</string>
-    <string name="recv_line">De %1$s\nlx=%2$s ly=%3$s btn=%4$s</string>
 
     <!-- Bluetooth -->
     <string name="bt_no_perm">Sem permissão Bluetooth, sem modo BT</string>

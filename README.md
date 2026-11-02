@@ -19,7 +19,6 @@
 - **Wi-Fi mode** — sends the controller state at 60 Hz over UDP to a small receiver on your PC, which exposes a virtual **Xbox 360 controller** (via ViGEm).
 - **Bluetooth HID mode** — the phone shows up as a regular gamepad to any device that supports Bluetooth controllers (no app needed on the other side). Requires Android 9+.
 - **Auto-discovery** — finds receivers on your network with a UDP broadcast, or type the IP manually.
-- **Receive mode** — a second Android phone can act as the receiver and display the incoming data.
 - **Fully customizable layout** — drag and resize every block, hide buttons you don't need, and save **profiles per game** (export/import as JSON).
 - **Skins** — Xbox, PlayStation and Switch styles.
 - **Floating analog areas** — touch anywhere on your half of the screen and the stick starts there.

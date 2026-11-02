@@ -19,7 +19,6 @@
 - **Modo Wi-Fi** — envia o estado do controle a 60 Hz por UDP para um receptor no PC, que cria um **controle virtual de Xbox 360** (via ViGEm).
 - **Modo Bluetooth HID** — o celular aparece como um gamepad comum para qualquer aparelho que aceite controles Bluetooth (sem precisar de app do outro lado). Requer Android 9+.
 - **Descoberta automática** — encontra receptores na rede por broadcast UDP, ou digite o IP manualmente.
-- **Modo Receber** — um segundo celular Android pode fazer o papel de receptor e mostrar os dados recebidos.
 - **Layout totalmente personalizável** — arraste e redimensione cada bloco, oculte botões que não usa e salve **perfis por jogo** (exportar/importar em JSON).
 - **Skins** — estilos Xbox, PlayStation e Switch.
 - **Áreas analógicas flutuantes** — toque em qualquer lugar da sua metade da tela e o analógico começa ali.
