@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Pantalla de conexión -->
+    <string name="connect_subtitle">Conéctate a un receptor en el mismo Wi-Fi</string>
+    <string name="ip_hint">IP del receptor (p. ej.: 192.168.0.50)</string>
+    <string name="discover">🔍 Buscar receptores</string>
+    <string name="control_wifi">🎮 Controlar (Wi-Fi)</string>
+    <string name="control_bt">🔵 Controlar (Bluetooth)</string>
+    <string name="bt_stop">🔴 Detener Bluetooth</string>
+    <string name="bt_legacy">Compat. receptor antiguo (reasigna botones BT)</string>
+    <string name="or_separator">— o —</string>
+    <string name="receive">📡 Recibir (este teléfono es el receptor)</string>
+    <string name="status_idle">Toca Buscar o escribe la IP.</string>
+    <string name="export_profiles">⬆ Exportar perfiles</string>
+    <string name="import_profiles">⬇ Importar perfiles</string>
+    <string name="pick_language">🌐 Idioma</string>
+    <string name="immersive">Pantalla completa inmersiva</string>
+
+    <!-- Diálogo de idioma -->
+    <string name="lang_title">Idioma de la app</string>
+    <string name="lang_system">Predeterminado del sistema</string>
+
+    <!-- Estados -->
+    <string name="searching">Buscando receptores…</string>
+    <string name="nothing_found">Nada encontrado. Revisa el Wi-Fi/firewall.</string>
+    <string name="found_n">%1$d encontrado(s): IP lista, toca Controlar.</string>
+    <string name="tap_find_hint">Toca Buscar…</string>
+    <string name="spinner_empty">Nada encontrado</string>
+    <string name="listening">Escuchando UDP :%1$d …</string>
+    <string name="recv_line">De %1$s\nlx=%2$s ly=%3$s btn=%4$s</string>
+
+    <!-- Bluetooth -->
+    <string name="bt_no_perm">Sin permiso Bluetooth, sin modo BT</string>
+    <string name="bt_unsupported">Este teléfono no admite modo HID (requiere Android 9+)</string>
+    <string name="bt_none">Sin Bluetooth en este dispositivo</string>
+    <string name="bt_enable">Activa el Bluetooth para usar este modo</string>
+    <string name="bt_visible">Visible como \'DroidPad\': enlázalo desde el otro dispositivo y abre el emulador.</string>
+    <string name="bt_reg_fail">Error al registrar HID. Inténtalo de nuevo.</string>
+    <string name="bt_connected">Conectado a %1$s: ¡juega! 🎮</string>
+    <string name="bt_disconnected">Desconectado: esperando enlace…</string>
+    <string name="bt_off">Bluetooth apagado.</string>
+    <string name="bt_mode_changed">Modo cambiado: activa el Bluetooth de nuevo y desenlaza/enlaza en el receptor.</string>
+    <string name="bt_registering">Registrando mando Bluetooth…</string>
+
+    <!-- Importar/exportar perfiles -->
+    <string name="profiles_exported">Perfiles exportados</string>
+    <string name="export_fail">Error al exportar: %1$s</string>
+    <string name="imported_n">%1$d perfil(es) importado(s)</string>
+    <string name="import_fail">Error al importar: %1$s</string>
+
+    <!-- Pantalla del mando -->
+    <string name="edit_hint">Arrastra bloques • ✥ mueve este panel • 👁 visibilidad • A± tamaño • 💾 perfil</string>
+    <string name="profiles_hint">Perfiles…</string>
+    <string name="profile_loaded">Perfil \'%1$s\'</string>
+    <string name="profile_saved">Perfil \'%1$s\' guardado</string>
+    <string name="profile_deleted">Perfil \'%1$s\' eliminado</string>
+    <string name="layout_reset">Diseño original restaurado</string>
+    <string name="all_visible">Todos los botones visibles</string>
+    <string name="save_profile_title">Guardar perfil</string>
+    <string name="profile_name_hint">Nombre del juego (p. ej.: Sonic)</string>
+    <string name="visibility_title">Botones visibles</string>
+    <string name="show_all">Mostrar todos</string>
+    <string name="close">Cerrar</string>
+    <string name="skin_title">Apariencia del mando</string>
+    <string name="skin_applied">Apariencia: %1$s (guarda el perfil para conservarla)</string>
+    <string name="el_left_stick">Stick izq.</string>
+    <string name="el_right_stick">Stick der.</string>
+    <string name="stick_mode_title">Modo del stick (fijo vs zona)</string>
+    <string name="stick_left_float">Izquierdo: zona flotante (toca donde sea)</string>
+    <string name="stick_right_float">Derecho: zona flotante (toca donde sea)</string>
+    <string name="stick_mode_hint">En modo zona, el stick fijo se oculta y cualquier punto vacío de esa mitad se vuelve el stick. Los botones encima siguen funcionando. Guarda el perfil para conservarlo.</string>
+    <string name="stick_mode_saved_hint">Modo cambiado: guarda el perfil para conservarlo</string>
+    <string name="vib_set">Vibración: %1$s</string>
+    <string name="vib_off">apagada</string>
+    <string name="vib_weak">suave</string>
+    <string name="vib_medium">media</string>
+    <string name="vib_strong">fuerte</string>
+    <string name="macros_title">Macros (combos)</string>
+    <string name="macro_item">Macro \'%1$s\'</string>
+    <string name="macro_edit_title">Editar %1$s</string>
+    <string name="macro_name_hint">Nombre del botón (p. ej.: Hadouken)</string>
+    <string name="macro_buttons_section">Botones (pulsados juntos)</string>
+    <string name="macro_clear">Limpiar</string>
+    <string name="macro_empty">(vacío)</string>
+    <string name="macro_empty_hint">Macro vacío — configúralo en 🎬</string>
+    <string name="macro_saved_hint">Macro guardado: guarda el perfil para conservarlo</string>
+</resources>

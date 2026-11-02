@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DroidPad</string>
+    <!-- Connection screen -->
+    <string name="connect_subtitle">Connect to a receiver on the same Wi-Fi</string>
+    <string name="ip_hint">Receiver IP (e.g. 192.168.0.50)</string>
+    <string name="discover">🔍 Find receivers</string>
+    <string name="control_wifi">🎮 Control (Wi-Fi)</string>
+    <string name="control_bt">🔵 Control (Bluetooth)</string>
+    <string name="bt_stop">🔴 Stop Bluetooth</string>
+    <string name="bt_legacy">Legacy receiver compat. (remaps BT buttons)</string>
+    <string name="or_separator">— or —</string>
+    <string name="receive">📡 Receive (this phone is the receiver)</string>
+    <string name="status_idle">Tap Find or type the IP.</string>
+    <string name="export_profiles">⬆ Export profiles</string>
+    <string name="import_profiles">⬇ Import profiles</string>
+    <string name="pick_language">🌐 Language</string>
+    <string name="immersive">Immersive fullscreen</string>
+
+    <!-- Language dialog -->
+    <string name="lang_title">App language</string>
+    <string name="lang_system">System default</string>
+
+    <!-- Statuses -->
+    <string name="searching">Finding receivers…</string>
+    <string name="nothing_found">Nothing found. Check Wi-Fi/firewall.</string>
+    <string name="found_n">%1$d found — IP filled, tap Control.</string>
+    <string name="tap_find_hint">Tap Find…</string>
+    <string name="spinner_empty">Nothing found</string>
+    <string name="listening">Listening UDP :%1$d …</string>
+    <string name="recv_line">From %1$s\nlx=%2$s ly=%3$s btn=%4$s</string>
+
+    <!-- Bluetooth -->
+    <string name="bt_no_perm">No Bluetooth permission, no BT mode</string>
+    <string name="bt_unsupported">This phone doesn\'t support HID mode (needs Android 9+)</string>
+    <string name="bt_none">No Bluetooth on this device</string>
+    <string name="bt_enable">Enable Bluetooth to use this mode</string>
+    <string name="bt_visible">Visible as \'DroidPad\' — pair from the other device and open the emulator.</string>
+    <string name="bt_reg_fail">HID registration failed. Try again.</string>
+    <string name="bt_connected">Connected to %1$s — play! 🎮</string>
+    <string name="bt_disconnected">Disconnected — waiting for pairing…</string>
+    <string name="bt_off">Bluetooth off.</string>
+    <string name="bt_mode_changed">Mode changed — enable Bluetooth again and unpair/pair on the receiver.</string>
+    <string name="bt_registering">Registering Bluetooth gamepad…</string>
+
+    <!-- Profiles import/export -->
+    <string name="profiles_exported">Profiles exported</string>
+    <string name="export_fail">Export failed: %1$s</string>
+    <string name="imported_n">%1$d profile(s) imported</string>
+    <string name="import_fail">Import failed: %1$s</string>
+
+    <!-- Controller screen -->
+    <string name="edit_hint">Drag blocks • ✥ moves this panel • 👁 visibility • A± size • 💾 profile</string>
+    <string name="profiles_hint">Profiles…</string>
+    <string name="profile_loaded">Profile \'%1$s\'</string>
+    <string name="profile_saved">Profile \'%1$s\' saved</string>
+    <string name="profile_deleted">Profile \'%1$s\' deleted</string>
+    <string name="layout_reset">Default layout restored</string>
+    <string name="all_visible">All buttons visible</string>
+    <string name="save_profile_title">Save profile</string>
+    <string name="profile_name_hint">Game name (e.g. Sonic)</string>
+    <string name="visibility_title">Visible buttons</string>
+    <string name="show_all">Show all</string>
+    <string name="close">Close</string>
+    <string name="skin_title">Controller skin</string>
+    <string name="skin_applied">Skin: %1$s (save the profile to keep it)</string>
+    <string name="el_left_stick">Left stick</string>
+    <string name="el_right_stick">Right stick</string>
+    <string name="stick_mode_title">Stick mode (fixed vs area)</string>
+    <string name="stick_left_float">Left: floating area (touch anywhere)</string>
+    <string name="stick_right_float">Right: floating area (touch anywhere)</string>
+    <string name="stick_mode_hint">In area mode the fixed stick hides and any empty spot on that half becomes the stick. Buttons on top still work. Save the profile to keep it.</string>
+    <string name="stick_mode_saved_hint">Stick mode set — save the profile to keep it</string>
+    <string name="vib_set">Vibration: %1$s</string>
+    <string name="vib_off">off</string>
+    <string name="vib_weak">weak</string>
+    <string name="vib_medium">medium</string>
+    <string name="vib_strong">strong</string>
+    <string name="macros_title">Macros (combos)</string>
+    <string name="macro_item">Macro \'%1$s\'</string>
+    <string name="macro_edit_title">Edit %1$s</string>
+    <string name="macro_name_hint">Button name (e.g. Hadouken)</string>
+    <string name="macro_buttons_section">Buttons (held together)</string>
+    <string name="macro_clear">Clear</string>
+    <string name="macro_empty">(empty)</string>
+    <string name="macro_empty_hint">Empty macro — set it up in 🎬</string>
+    <string name="macro_saved_hint">Macro saved — save the profile to keep it</string>
+</resources>

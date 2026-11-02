@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Root em FrameLayout: cada bloco é posicionável (x/y) e redimensionável no modo edição.
+     Padrão compacto p/ caber em paisagem (~360dp de altura) sem sobreposição. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootController"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <!-- Barra de edição (só visível no modo edição) -->
+    <!-- Painel flutuante de edição: fica por cima de tudo e pode ser arrastado
+         pela alça ✥ p/ qualquer canto, liberando a tela inteira p/ posicionar os botões. -->
+    <!-- (movido p/ o fim do arquivo: último filho = topo do Z-order) -->
+
+    <!-- Áreas flutuantes dos analógicos (atrás dos botões): onde o dedo tocar
+         no vazio da metade esquerda/direita vira a origem do joystick.
+         Visíveis só quando o modo "área" está ativo p/ aquele lado. -->
+    <com.phonepad.app.FloatingStickArea android:id="@+id/floatLeft"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:visibility="gone"/>
+    <com.phonepad.app.FloatingStickArea android:id="@+id/floatRight"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:visibility="gone"/>
+
+    <!-- Blocos móveis (ids usados pelo ControllerProfileStore) -->
+    <LinearLayout android:id="@+id/blockLB" android:orientation="horizontal"
+        android:layout_gravity="left|top" android:layout_margin="8dp"
+        android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <Button android:id="@+id/btnLB" android:text="LB" android:textSize="12sp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <Button android:id="@+id/btnLT" android:text="LT" android:textSize="12sp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/blockStickL" android:orientation="vertical" android:gravity="center"
+        android:layout_gravity="left|center_vertical" android:layout_marginLeft="8dp"
+        android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <com.phonepad.app.JoystickView android:id="@+id/joyLeft"
+            android:layout_width="120dp" android:layout_height="120dp"/>
+        <Button android:id="@+id/btnL3" android:text="L3" android:textSize="10sp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/blockDpad" android:orientation="vertical" android:gravity="center"
+        android:layout_gravity="left|bottom" android:layout_margin="8dp"
+        android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <Button android:id="@+id/btnUp" android:text="▲" android:textSize="12sp"
+            android:layout_width="40dp" android:layout_height="40dp" android:layout_gravity="center"/>
+        <LinearLayout android:orientation="horizontal"
+            android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <Button android:id="@+id/btnLeft" android:text="◀" android:textSize="12sp"
+                android:layout_width="40dp" android:layout_height="40dp"/>
+            <Button android:id="@+id/btnRight" android:text="▶" android:textSize="12sp"
+                android:layout_width="40dp" android:layout_height="40dp"/>
+        </LinearLayout>
+        <Button android:id="@+id/btnDown" android:text="▼" android:textSize="12sp"
+            android:layout_width="40dp" android:layout_height="40dp" android:layout_gravity="center"/>
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/blockSys" android:orientation="horizontal" android:gravity="center"
+        android:layout_gravity="top|center_horizontal" android:layout_marginTop="4dp"
+        android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <Button android:id="@+id/btnBack" android:text="Back" android:textSize="10sp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <Button android:id="@+id/btnStart" android:text="Start" android:textSize="10sp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <Button android:id="@+id/btnDisconnect" android:text="✕" android:textSize="10sp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/blockRB" android:orientation="horizontal"
+        android:layout_gravity="right|top" android:layout_margin="8dp"
+        android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <Button android:id="@+id/btnRB" android:text="RB" android:textSize="12sp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <Button android:id="@+id/btnRT" android:text="RT" android:textSize="12sp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/blockFace" android:orientation="vertical"
+        android:layout_gravity="right|center_vertical" android:layout_marginRight="8dp"
+        android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <GridLayout android:columnCount="2" android:rowCount="2"
+            android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <Button android:id="@+id/btnX" android:text="X" android:layout_width="50dp" android:layout_height="50dp"/>
+            <Button android:id="@+id/btnY" android:text="Y" android:layout_width="50dp" android:layout_height="50dp"/>
+            <Button android:id="@+id/btnA" android:text="A" android:layout_width="50dp" android:layout_height="50dp"/>
+            <Button android:id="@+id/btnB" android:text="B" android:layout_width="50dp" android:layout_height="50dp"/>
+        </GridLayout>
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/blockStickR" android:orientation="vertical" android:gravity="center"
+        android:layout_gravity="right|bottom" android:layout_margin="8dp"
+        android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <com.phonepad.app.JoystickView android:id="@+id/joyRight"
+            android:layout_width="120dp" android:layout_height="120dp"/>
+        <Button android:id="@+id/btnR3" android:text="R3" android:textSize="10sp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <!-- Bloco de macros (M1..M4): começa escondido, aparece ao configurar o 1º macro.
+         Na edição fica visível p/ poder posicionar. -->
+    <LinearLayout android:id="@+id/blockMacro" android:orientation="horizontal" android:gravity="center"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <Button android:id="@+id/btnM1" android:text="M1" android:textSize="12sp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <Button android:id="@+id/btnM2" android:text="M2" android:textSize="12sp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <Button android:id="@+id/btnM3" android:text="M3" android:textSize="12sp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <Button android:id="@+id/btnM4" android:text="M4" android:textSize="12sp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <!-- Engrenagem: entra no modo edição -->
+    <Button android:id="@+id/btnEdit" android:text="⚙" android:textSize="12sp"
+        android:layout_gravity="bottom|center_horizontal" android:layout_marginBottom="2dp"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+    <!-- Painel flutuante de edição (só visível no modo edição). Último filho = por cima
+         de tudo. Arraste pela alça ✥ p/ qualquer lugar p/ liberar a área que for editar.
+         clickable=true p/ o fundo não repassar toques p/ o controle que está embaixo. -->
+    <LinearLayout android:id="@+id/editBar" android:visibility="gone"
+        android:background="#CC000000" android:clickable="true"
+        android:orientation="vertical" android:padding="6dp"
+        android:layout_gravity="top|left"
+        android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:id="@+id/editHandle"
+            android:text="✥" android:textSize="14sp" android:gravity="center"
+            android:textColor="#FFFFFF" android:paddingTop="2dp" android:paddingBottom="6dp"
+            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <GridLayout android:columnCount="3"
+            android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <Button android:id="@+id/btnDone" android:text="✓" android:textSize="12sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <Button android:id="@+id/btnSmaller" android:text="A−" android:textSize="12sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <Button android:id="@+id/btnBigger" android:text="A+" android:textSize="12sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <Button android:id="@+id/btnResetLayout" android:text="⟲" android:textSize="12sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <Button android:id="@+id/btnShowAll" android:text="👁" android:textSize="12sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <Button android:id="@+id/btnStickMode" android:text="🕹" android:textSize="12sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <Button android:id="@+id/btnSkin" android:text="🎨" android:textSize="12sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <Button android:id="@+id/btnVib" android:text="📳" android:textSize="12sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <Button android:id="@+id/btnSaveProfile" android:text="💾" android:textSize="12sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <Button android:id="@+id/btnDelProfile" android:text="🗑" android:textSize="12sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <Button android:id="@+id/btnMacros" android:text="🎬" android:textSize="12sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </GridLayout>
+        <Spinner android:id="@+id/spProfiles"
+            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    </LinearLayout>
+</FrameLayout>
