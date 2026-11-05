@@ -2,7 +2,7 @@
 # Uso:
 #   .\build.ps1              # gera debug + instala se tiver celular no adb
 #   .\build.ps1 -NoInstall   # só gera o APK
-#   .\build.ps1 -Config release
+#   .\build.ps1 -Config release   # APK assinado (precisa de keystore.properties)
 param(
     [ValidateSet("debug", "release")][string]$Config = "debug",
     [switch]$NoInstall
@@ -10,6 +10,12 @@ param(
 
 $ErrorActionPreference = "Stop"
 Set-Location -LiteralPath $PSScriptRoot
+
+if ($Config -eq "release" -and -not (Test-Path -LiteralPath "keystore.properties")) {
+    Write-Host "keystore.properties nao encontrado em android\." -ForegroundColor Red
+    Write-Host "Copie keystore.properties.example para keystore.properties e preencha (veja os comentarios nele)." -ForegroundColor Yellow
+    exit 1
+}
 
 $task = if ($Config -eq "release") { "assembleRelease" } else { "assembleDebug" }
 Write-Host ">> gradlew $task" -ForegroundColor Cyan

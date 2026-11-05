@@ -3,6 +3,16 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+// Assinatura de release.
+// Local: lê android/keystore.properties (fica FORA do git — veja keystore.properties.example).
+// CI (GitHub Actions): lê as variáveis de ambiente SIGNING_*.
+def keystoreProps = new Properties()
+def keystorePropsFile = rootProject.file("keystore.properties")
+if (keystorePropsFile.exists()) {
+    keystorePropsFile.withInputStream { keystoreProps.load(it) }
+}
+def signingValue = { String prop, String env -> keystoreProps.getProperty(prop) ?: System.getenv(env) }
+
 android {
     namespace "com.phonepad.app"
     compileSdk 34
@@ -14,9 +24,24 @@ android {
         versionCode 1
         versionName "1.0"
     }
+    signingConfigs {
+        release {
+            def storePath = signingValue("storeFile", "SIGNING_STORE_FILE")
+            if (storePath) {
+                storeFile rootProject.file(storePath)
+                storePassword signingValue("storePassword", "SIGNING_STORE_PASSWORD")
+                keyAlias signingValue("keyAlias", "SIGNING_KEY_ALIAS")
+                keyPassword signingValue("keyPassword", "SIGNING_KEY_PASSWORD")
+            }
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
+            // Sem chave configurada o Gradle gera um APK "unsigned" (não instalável).
+            if (signingConfigs.release.storeFile != null) {
+                signingConfig signingConfigs.release
+            }
         }
     }
     compileOptions {
